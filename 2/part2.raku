@@ -1,4 +1,4 @@
-say map({
-  my ($h, $g) = .words>>.ord Z- '@X'.ords;
-  ($h + 1 + $g) % 3 + 1 + 3 * $g
-}, slurp("input.txt").lines).sum
+say slurp("input.txt").lines>>.&{
+  my @a = .words>>.ord Z- '?X'.ords;
+  @a.sum % 3 + 1 + 3 * @a[1]
+}.sum

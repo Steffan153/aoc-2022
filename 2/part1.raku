@@ -1,4 +1,4 @@
-say map({
-  my ($a, $b) = .words;
-  $b.ord - 87 + (chr($a.ord + 23) eq $b ?? 3 !! 6 * (so $_ eq "A Y" | "B Z" | "C X"))
-}, slurp("input.txt").lines).sum
+say slurp("input.txt").lines>>.&{
+  my ($a, $b) = .words>>.ord Z- '@W'.ords;
+  $b + 3 * ($a == $b) + 6 * ($a % 3 + 1 == $b)
+}.sum
